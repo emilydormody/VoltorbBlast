@@ -22,9 +22,10 @@ public class Board extends JFrame {
                     square = new BoardSquare(x,y, true);}
                 else{
                     square = new BoardSquare(x,y,false);}
-
-                boardPanel.add(square);
-                board[x][y] = square;
+                if (x== 5 && y==5){}
+                else{
+                    boardPanel.add(square);
+                    board[x][y] = square;}
                 }
 
             }
