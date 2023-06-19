@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Board extends JFrame {
+    private JPanel sidePanel;
     private BoardSquare[][] board;
     public Board() {
         this.setSize(new Dimension(1100,700));
         this.setLayout(new BorderLayout());
         JPanel boardPanel = new JPanel(new GridLayout(6,6, 7,7));
-        JPanel sidePanel = new JPanel(new GridLayout(2,1));
+        sidePanel = new JPanel(new GridLayout(2,1));
+        buildSide();
         boardPanel.setPreferredSize(new Dimension(700,700));
         boardPanel.setBackground(new Color(50, 168, 82));
         sidePanel.setPreferredSize(new Dimension(400,700));
@@ -33,7 +35,15 @@ public class Board extends JFrame {
         getContentPane().add(sidePanel, BorderLayout.EAST);
         setVisible(true);}
 
-
+    private void buildSide() {
+        JPanel top = new JPanel(new GridLayout(2, 2));
+        top.setBackground(Color.white);
+        JLabel totalLabel = new JLabel("Total Coins");
+        totalLabel.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
+        totalLabel.setBorder(BorderFactory.createLineBorder(new Color(41, 133, 66)));
+        top.add(totalLabel);
+        sidePanel.add(top);
+    }
 
 
     public static void main(String[] argv){
